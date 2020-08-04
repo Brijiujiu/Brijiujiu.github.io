@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>trojan代理从搭建到应用 | W+Q=ΔU</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="事先声明：本人对trojan及此类型软件的拓展使用方法一概不知，爱国爱党。请勿作非法用途 众所周知，一般来说，基于解决为适应我国国情而做出的部分国际互联网限制所导致的学术信息交流不方便等问题而提出的大多数加密流量型代理协议(SS&#x2F;SSR等)已经不再稳定和安全，众多网友迫切地寻找一款真正能够满足日常需求的代理软件。于是，v2ray以及Trojan就应运而生。二者都是伪装流量类型的代理方式。Troja">
+<meta property="og:type" content="article">
+<meta property="og:title" content="trojan代理从搭建到应用">
+<meta property="og:url" content="https://github.com/Brijiujiu/Brijiujiu.github.io/2020/04/01/Azure%E6%90%AD%E5%BB%BAtrojan%E4%BB%A3%E7%90%86%E8%BF%87%E7%A8%8B/index.html">
+<meta property="og:site_name" content="W+Q&#x3D;ΔU">
+<meta property="og:description" content="事先声明：本人对trojan及此类型软件的拓展使用方法一概不知，爱国爱党。请勿作非法用途 众所周知，一般来说，基于解决为适应我国国情而做出的部分国际互联网限制所导致的学术信息交流不方便等问题而提出的大多数加密流量型代理协议(SS&#x2F;SSR等)已经不再稳定和安全，众多网友迫切地寻找一款真正能够满足日常需求的代理软件。于是，v2ray以及Trojan就应运而生。二者都是伪装流量类型的代理方式。Troja">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/01/G8pcrj.png">
+<meta property="article:published_time" content="2020-04-01T10:44:13.000Z">
+<meta property="article:modified_time" content="2020-05-07T17:52:47.815Z">
+<meta property="article:author" content="debrito">
+<meta property="article:tag" content="trojan代理搭建">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/04/01/G8pcrj.png">
+  
+    <link rel="alternate" href="/atom.xml" title="W+Q=ΔU" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">W+Q=ΔU</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/Brijiujiu/Brijiujiu.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Azure搭建trojan代理过程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/01/Azure%E6%90%AD%E5%BB%BAtrojan%E4%BB%A3%E7%90%86%E8%BF%87%E7%A8%8B/" class="article-date">
+  <time datetime="2020-04-01T10:44:13.000Z" itemprop="datePublished">2020-04-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%AE%B0%E5%BD%95-%E5%A4%87%E5%BF%98/">记录-备忘</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      trojan代理从搭建到应用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="事先声明：本人对trojan及此类型软件的拓展使用方法一概不知，爱国爱党。"><a href="#事先声明：本人对trojan及此类型软件的拓展使用方法一概不知，爱国爱党。" class="headerlink" title="事先声明：本人对trojan及此类型软件的拓展使用方法一概不知，爱国爱党。"></a>事先声明：本人对trojan及此类型软件的拓展使用方法一概不知，爱国爱党。</h3><h4 id="请勿作非法用途"><a href="#请勿作非法用途" class="headerlink" title="请勿作非法用途"></a><em>请勿作非法用途</em></h4><blockquote>
+<p>众所周知，一般来说，基于解决为适应我国国情而做出的部分国际互联网限制所导致的学术信息交流不方便等问题而提出的大多数加密流量型代理协议(SS/SSR等)已经不再稳定和安全，众多网友迫切地寻找一款真正能够满足日常需求的代理软件。于是，<strong>v2ray</strong>以及<strong>Trojan</strong>就应运而生。二者都是伪装流量类型的代理方式。<br><a href="https://github.com/trojan-gfw/trojan">Trojan in github</a>  </p>
+</blockquote>
+<ul>
+<li>v2ray是完整的网络框架，对服务器及用户的资源占用是比较大的。但是使用比较广泛。</li>
+<li>trojan可以说是v2ray的简化版，由于使用C++编写以及简化了一层加密，理论速度会比v2ray高，负载也较小。但是<strong>Trojan不能套接CDN加速</strong>。</li>
+</ul>
+<p>本文主要讲述trojan在Azure服务器的安装过程。</p>
+<h3 id="一、搞到一台VPS"><a href="#一、搞到一台VPS" class="headerlink" title="一、搞到一台VPS"></a>一、搞到一台VPS</h3><p>文中采用Azure的日本东部免费订阅，Ubuntu服务器作为示例。  </p>
+<p><strong>服务器必须开放80及443端口</strong>  </p>
+<p>方法自查。</p>
+<h3 id="二、DNS解析配置"><a href="#二、DNS解析配置" class="headerlink" title="二、DNS解析配置"></a>二、DNS解析配置</h3><p>推荐Cloudflare，<strong>不要使用VPS自带的dns</strong>  </p>
+<p>在cloudflare填写配置完成后需要几个小时才能生效，判定方法为ping出的ip是否为服务器ip。  </p>
+<h3 id="三、开始配置服务端"><a href="#三、开始配置服务端" class="headerlink" title="三、开始配置服务端"></a>三、开始配置服务端</h3><ol>
+<li><p>使用SSH连接服务器，以root用户登录</p>
+</li>
+<li><p>注册SSL证书，如果已经有证书可以跳过这步。  </p>
+<ol>
+<li><code>apt update&amp;&amp;apt upgrade&amp;&amp;apt install certbot</code></li>
+<li><code>certbot certonly --standalone -d [你的域名]</code></li>
+<li>按照提示填写信息即可。</li>
+</ol>
+</li>
+<li><p>完成生成SSL证书后，可运行<code>certbot certificates</code> 来获取证书路径，分别有两个pem文件。  </p>
+</li>
+<li><p><code>bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/trojan-gfw/trojan-quickstart/master/trojan-quickstart.sh)&quot;</code></p>
+</li>
+<li><p><code>apt install nginx</code>  <em>此为安装nginx框架搭建伪装网页</em>  </p>
+</li>
+<li><p>配置Trojan：<code> vim /usr/local/etc/trojan/config.json</code>  </p>
+<p>按i编辑<code>&quot;password&quot;:</code>中的两个密码，默认使用第一个。接着修改<code>cert</code>和<code>key</code>,分别填入ssl证书（pem文件）的绝对路径。  </p>
+<p>完成后<code>ESC</code>后<code>：wq</code>保存退出。</p>
+</li>
+</ol>
+<ol start="7">
+<li>就此安装完成，接下来配置开机自启及启动  </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable trojan&amp;&amp;systemctl enable nginx&amp;&amp;systemctl start trojan&amp;&amp;systemctl start nginx</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="以上服务端配置完成，可ss-lp-grep-trojan检测运行状况，有输出即正常，无输出检查步骤。"><a href="#以上服务端配置完成，可ss-lp-grep-trojan检测运行状况，有输出即正常，无输出检查步骤。" class="headerlink" title="以上服务端配置完成，可ss -lp | grep trojan检测运行状况，有输出即正常，无输出检查步骤。"></a>以上服务端配置完成，可<code>ss -lp | grep trojan</code>检测运行状况，有输出即正常，无输出检查步骤。</h3><h3 id="四、客户端配置"><a href="#四、客户端配置" class="headerlink" title="四、客户端配置"></a>四、客户端配置</h3><p>windows可使用trojan.exe或clash、V2rayN，linux参考windows。Mac未知可自行查询。<br>路由器多数第三方固件可使用三月中旬后更新的clash。</p>
+<p>clash配置参考（第102、104、106、128、130、132修改为自己的参数，其它依用户水平自己调整。）：<br><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Dabrit/LinkFiles/master/clash.yaml">https://raw.githubusercontent.com/Dabrit/LinkFiles/master/clash.yaml</a>  </p>
+<p>复制后保存为yml文件就可以拖动至clash使用，或者直接复制进路由器clash配置。<br><a href="https://github.com/Dreamacro/clash">Clash for windows</a></p>
+<p>整个头图最后。<br><img src="https://s1.ax1x.com/2020/04/01/G8pcrj.png" alt="头图">  </p>
+<p>本文完结。<br>2020.4.1.19:35 latest edit</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/Brijiujiu/Brijiujiu.github.io/2020/04/01/Azure%E6%90%AD%E5%BB%BAtrojan%E4%BB%A3%E7%90%86%E8%BF%87%E7%A8%8B/" data-id="ckdfttya90001sdt3ekrchy7m" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/trojan%E4%BB%A3%E7%90%86%E6%90%AD%E5%BB%BA/" rel="tag">trojan代理搭建</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/05/03/%E4%B8%80%E4%B8%AA%E5%BE%88%E7%9C%9F%E5%AE%9E%E7%9A%84%E8%A7%86%E9%A2%91%EF%BC%88%E8%BD%AC%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          一个很真实的视频（转）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/03/24/Facerig%E5%AF%BC%E5%85%A5live2D%E6%A8%A1%E5%9E%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Facerig导入live2D模型及实际应用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E7%AB%A0/">文章</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A0%E5%88%86%E7%B1%BB/">无分类</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%B0%E5%BD%95-%E5%A4%87%E5%BF%98/">记录-备忘</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Facerig/" rel="tag">Facerig</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/trojan%E4%BB%A3%E7%90%86%E6%90%AD%E5%BB%BA/" rel="tag">trojan代理搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%89%E4%BD%93/" rel="tag">三体</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A0%E5%B8%B8/" rel="tag">无常</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%98%BE%E5%8D%A1-Bios-%E6%98%BE%E7%A4%BA/" rel="tag">显卡-Bios-显示</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8B%BC%E3%81%A8%E9%A6%99%E8%BE%9B%E6%96%99/" rel="tag">狼と香辛料</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AD%A6%E9%86%92/" rel="tag">警醒</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BA%E6%96%87/" rel="tag">论文</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Facerig/" style="font-size: 10px;">Facerig</a> <a href="/tags/trojan%E4%BB%A3%E7%90%86%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">trojan代理搭建</a> <a href="/tags/%E4%B8%89%E4%BD%93/" style="font-size: 10px;">三体</a> <a href="/tags/%E6%97%A0%E5%B8%B8/" style="font-size: 10px;">无常</a> <a href="/tags/%E6%98%BE%E5%8D%A1-Bios-%E6%98%BE%E7%A4%BA/" style="font-size: 10px;">显卡-Bios-显示</a> <a href="/tags/%E7%8B%BC%E3%81%A8%E9%A6%99%E8%BE%9B%E6%96%99/" style="font-size: 10px;">狼と香辛料</a> <a href="/tags/%E8%AD%A6%E9%86%92/" style="font-size: 10px;">警醒</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 10px;">论文</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/1970/01/">一月 1970</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/05/29/%E6%97%A0%E5%B8%B8/">无常</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/03/%E4%B8%80%E4%B8%AA%E5%BE%88%E7%9C%9F%E5%AE%9E%E7%9A%84%E8%A7%86%E9%A2%91%EF%BC%88%E8%BD%AC%EF%BC%89/">一个很真实的视频（转）</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/01/Azure%E6%90%AD%E5%BB%BAtrojan%E4%BB%A3%E7%90%86%E8%BF%87%E7%A8%8B/">trojan代理从搭建到应用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/24/Facerig%E5%AF%BC%E5%85%A5live2D%E6%A8%A1%E5%9E%8B/">Facerig导入live2D模型及实际应用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/23/%E4%B8%89%E4%BD%93-%E7%94%9F%E5%AD%98%E4%B8%8E%E4%BA%BA%E6%80%A7%E7%9A%84%E6%8A%89%E6%8B%A9/">三体:生存与人性间的抉择</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 debrito<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
